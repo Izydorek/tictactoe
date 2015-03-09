@@ -1,0 +1,9 @@
+1. rozpakuj java jdk 8 /opt/java lub /usr/lib/jvm
+2. w  pliku eclipse.ini poni¿ej openFile :
+-vm
+œcie¿ka do java/bin/java 
+3. linux.deb w screen builder  2.0 
+4. sudo dpgk -i plik
+5. windows > PREF > javafx > executable 
+
+http://code.makery.ch/java/javafx-8-tutorial-part1/ tutorial 
