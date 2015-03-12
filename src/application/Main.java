@@ -1,10 +1,14 @@
 package application;
 	
+import java.io.IOException;
+
 import javafx.application.Application;
-import javafx.scene.Group;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
@@ -12,16 +16,30 @@ import javafx.stage.Stage;
 
 
 public class Main extends Application {
-	@Override
+	
+	
+
+	public Main() {
+		super();
+		
+		
+	}
+	
+	
 	public void start(Stage primaryStage) {
 		try {
 			primaryStage.setTitle("tictactoe");
-			Group root = new Group();
+			BorderPane root = new BorderPane();
 			Canvas canvas = new Canvas(120,120);
 			draw(canvas.getGraphicsContext2D());
-			root.getChildren().add(canvas);
+			
+		//	root.setCenter(canvas);
 		//	BorderPane root = new BorderPane();
-			Scene scene = new Scene(root,120,120);
+			Scene scene = new Scene(root,500, 300);
+			AnchorPane menuPane = createMenuPane();
+			AnchorPane HotSeatMenu = createHotSeatMenu();
+			root.setCenter(HotSeatMenu);
+		//	root.setCenter(menuPane);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -30,6 +48,31 @@ public class Main extends Application {
 		}
 	}
 	
+	private AnchorPane createMenuPane() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("views/Menu.fxml"));
+		try {
+			AnchorPane menu = loader.load();
+			return menu;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	private AnchorPane createHotSeatMenu() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("views/HotSeatMenu.fxml"));
+		try {
+			AnchorPane menu = loader.load();
+			return menu;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+
 	private void draw(GraphicsContext g) {
 //	
 //		g.strokeLine(0, 0, 120, 120);
@@ -39,12 +82,8 @@ public class Main extends Application {
 //		g.setStroke(Paint.valueOf("red"));
 //		
 //		g.strokeRect(50, 50, 20, 20);
-	
-		g.strokeOval(30, 90, 20, 20);
-		g.strokeOval(60, 90, 20, 20);
-		g.strokeLine(50, 95, 50, 0);
-		g.strokeLine(60, 95, 60, 0);
 		
+		g.strokeLine(30, 60, 90, 60);		
 		
 //		g.clearRect(0, 0, 120, 120);
 	
@@ -61,7 +100,7 @@ public class Main extends Application {
 	
 
 	private void drawCross(GraphicsContext g, int i, int j) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
@@ -71,7 +110,6 @@ public class Main extends Application {
 	}
 
 	private void drawBoard(GraphicsContext g) {
-		
 		
 	}
 
