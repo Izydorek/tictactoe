@@ -8,8 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import application.views.GameControler;
+import application.views.HotSeatMenuControler;
 import application.views.MenuControler;
 
 
@@ -17,7 +20,8 @@ import application.views.MenuControler;
 
 public class Main extends Application {
 	
-	
+
+	private BorderPane root;
 
 	public Main() {
 		super();
@@ -30,7 +34,7 @@ public class Main extends Application {
 		
 		try {
 			primaryStage.setTitle("tictactoe");
-			BorderPane root = new BorderPane();
+			root = new BorderPane();
 			Canvas canvas = new Canvas(120,120);
 		//	draw(canvas.getGraphicsContext2D());
 		//	root.setCenter(canvas);
@@ -69,6 +73,8 @@ public class Main extends Application {
 		loader.setLocation(Main.class.getResource("views/HotSeatMenu.fxml"));
 		try {
 			AnchorPane menu = loader.load();
+			HotSeatMenuControler controller = loader.getController();
+			controller.setMain(this);
 			return menu;
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -87,27 +93,29 @@ public class Main extends Application {
 		}
 		return null;
 	}
+	
+
+	
+	public void startGame(String name1, String name2){
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("views/Game.fxml"));
+		try {
+			BorderPane game = (BorderPane) loader.load();
+			GameControler controller = loader.getController();
+			controller.setMain(this);
+			controller.startGame(name1, name2);
+			
+			root.setCenter(game);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 	private void draw(GraphicsContext g) {
-//	
-//		g.strokeLine(0, 0, 120, 120);
-//		
-//		g.strokeOval(60, 60, 10, 10);
-//		
-//		g.setStroke(Paint.valueOf("red"));
-//		
-//		g.strokeRect(50, 50, 20, 20);
-		
-//		g.clearRect(0, 0, 120, 120);
-	
-		
+
 		drawBoard(g);
-//		drawCircle(g, 0, 0);
-//		drawCircle(g, 0, 1);
-//		drawCircle(g, 2, 0);
-//		drawCircle(g, 0, 2);
-//		drawCircle(g, 2, 2);
+
 		
 		drawCross(g, 1, 1);
 		drawCross(g, 2, 2);
@@ -125,15 +133,6 @@ public class Main extends Application {
 	private void drawCircle(GraphicsContext g, int row, int col) {
 		g.strokeOval(40 * row, 40 * col, 40, 40);
 		
-//		g.strokeOval(0, 40, 40, 40);
-//		g.strokeOval(40, 0, 40, 40);
-//		g.strokeOval(40, 40, 40, 40);
-//		g.strokeOval(0, 0, 40, 40);
-//		g.strokeOval(80, 80, 40, 40);
-//		g.strokeOval(0, 80, 40, 40);
-//		g.strokeOval(80, 0, 40, 40);
-//		g.strokeOval(40, 80, 40, 40);
-//		g.strokeOval(80, 40, 40, 40);
 	}
 
 	private void drawBoard(GraphicsContext g) {

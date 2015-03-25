@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.views.HotSeatMenuControler">
    <children>
-      <Button layoutX="190.0" layoutY="200.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="306.0" layoutY="361.0" mnemonicParsing="false" onAction="#startGame" prefHeight="25.0" prefWidth="80.0" text="Rozpocznij" />
+      <RadioButton fx:id="toggle1" layoutX="142.0" layoutY="109.0" mnemonicParsing="false" selected="true">
+         <toggleGroup>
+            <ToggleGroup fx:id="whoStartsGroup" />
+         </toggleGroup></RadioButton>
+      <Label layoutX="47.0" layoutY="109.0" text="Rozpoczyna:" />
+      <TextField fx:id="name1" layoutX="142.0" layoutY="64.0" />
+      <Label layoutX="47.0" layoutY="28.0" text="Gracz 1 - Kółka" />
+      <Label layoutX="47.0" layoutY="68.0" text="Imię:" />
+      <Label layoutX="47.0" layoutY="223.0" text="Imię:" />
+      <Label layoutX="47.0" layoutY="183.0" text="Gracz 2 - Krzyżyki" />
+      <TextField fx:id="name2" layoutX="142.0" layoutY="219.0" />
+      <Label layoutX="47.0" layoutY="264.0" text="Rozpoczyna:" />
+      <RadioButton fx:id="toggle2" layoutX="142.0" layoutY="264.0" mnemonicParsing="false" toggleGroup="$whoStartsGroup" />
+      <Separator layoutX="50.0" layoutY="155.0" prefWidth="300.0" />
    </children>
 </AnchorPane>
