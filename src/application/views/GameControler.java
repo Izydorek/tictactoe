@@ -28,6 +28,10 @@ public class GameControler {
 	@FXML
 	private Canvas canvas;
 	
+	private void clear(GraphicsContext g){
+		g.clearRect(0, 0, 240, 240);
+		g.strokeRect(0, 0, 240, 240);
+	}
 	public void setMain(Main main){
 		this.main = main;
 	}
@@ -54,46 +58,46 @@ public class GameControler {
 	
 	@FXML
 	public void boardClicked(MouseEvent event){
-		System.out.println(event.getX() + "," + event.getY());
+		System.out.println(event.getX() + "," + event.get-Y());
+		
+		int row = (int) (event.getY() / 80);
+		int col = (int) (event.getX() / 80);
+		
+		draw(canvas.getGraphicsContext2D());
+		
+		drawCross(canvas.getGraphicsContext2D(), row, col);
 	}
 	
 	private void draw(GraphicsContext g) {
-	//	
-//			g.strokeLine(0, 0, 120, 120);
-//			
-//			g.strokeOval(60, 60, 10, 10);
-//			
-//			g.setStroke(Paint.valueOf("red"));
-//			
-//			g.strokeRect(50, 50, 20, 20);
-			
-//			g.clearRect(0, 0, 120, 120);
-		
-			
-			drawBoard(g);
-//			drawCircle(g, 0, 0);
-//			drawCircle(g, 0, 1);
-//			drawCircle(g, 2, 0);
-//			drawCircle(g, 0, 2);
-//			drawCircle(g, 2, 2);
-			
-			drawCross(g, 1, 1);
-			drawCross(g, 2, 2);
-			drawCross(g, 2, 0);
-			drawCross(g, 0, 2);
-			
-		}
 
+		clear(g);
+		drawBoard(g);
 		
-		private void drawCross(GraphicsContext g, int row, int col) {
-			g.strokeLine(col * 40, row * 40, (col + 1) * 40, (row + 1) * 40);
-			g.strokeLine(col * 40, (row + 1) * 40, (col + 1) * 40, row * 40);
-		}
+		drawBoard(g);
+		
+	}
 
-		private void drawCircle(GraphicsContext g, int row, int col) {
-			g.strokeOval(40 * row, 40 * col, 40, 40);
-			
-			
-		}
+	
+	private void drawCross(GraphicsContext g, int row, int col) {
+		g.strokeLine(col * 40, row * 40, (col + 1) * 40, (row + 1) * 40);
+		g.strokeLine(col * 40, (row + 1) * 40, (col + 1) * 40, row * 40);
+	}
+
+	private void drawCircle(GraphicsContext g, int row, int col) {
+		g.strokeOval(40 * row, 40 * col, 40, 40);
+		
+	}
+
+	private void drawBoard(GraphicsContext g) {
+		g.strokeLine(0 , 0, 120, 0);	
+		g.strokeLine(0 , 120, 120, 120);
+		g.strokeLine(120 , 0, 120, 120);
+		g.strokeLine(0 , 0, 0, 120);
+		
+		g.strokeLine(0 , 40, 120, 40);	
+		g.strokeLine(0 , 80, 120, 80);
+		g.strokeLine(80 , 0, 80, 120);
+		g.strokeLine(40 , 0, 40, 120);
+	}
 	
 }
