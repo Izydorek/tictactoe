@@ -9,6 +9,10 @@
 http://code.makery.ch/java/javafx-8-tutorial-part1/ tutorial 
 
 ZADANIE:
-Przez siec
-Wygl¹d
-textField (IMIE) Label (tekst) Radio (button) CHeckbox
+Jak ktoœ wygra to chcemy napisac: GRATULACJE WYGRA£Y "krzyzyki"
+blokada ruchu jesli ktos wygra³
+utworz pola score1 score2. Jesli ktos wygra³ dodaj score(label)
+utworz dwa pomocnicze pola private int ( intScore1; intScore2;)
+Jesli ktos wygra³ zwieksz score o 1.
+zrob next match. (odpala start game)
+Jesli ktos wygra³ narysuj kreskê

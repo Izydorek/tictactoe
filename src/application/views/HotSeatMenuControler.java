@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
+import aplication.model.Cell;
 import application.Main;
 
 public class HotSeatMenuControler {
@@ -32,14 +33,17 @@ public class HotSeatMenuControler {
 
 		System.out.println("Username1: " + name1.getText());
 		System.out.println("Username2: " + name2.getText());
+		
+		Cell whoStarts = null;
+		
 
 		if(whoStartsGroup.getSelectedToggle() == toggle1) {
-			System.out.println("Zaczynaj¹ Kó³ka");			
+			whoStarts = Cell.CIRCLE;	
 		} else if (whoStartsGroup.getSelectedToggle() == toggle2){
-			System.out.println("Zaczynaj¹ Krzy¿yki");
+			whoStarts = Cell.CROSS;
 		}
 		
-	main.startGame(name1.getText(), name2.getText());
+	main.startGame(name1.getText(), name2.getText(), whoStarts);
 	}
 
 	public void setMain(Main main) {

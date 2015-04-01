@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import aplication.model.Cell;
 import application.views.GameControler;
 import application.views.HotSeatMenuControler;
 import application.views.MenuControler;
@@ -96,32 +97,19 @@ public class Main extends Application {
 	
 
 	
-	public void startGame(String name1, String name2){
+	public void startGame(String name1, String name2, Cell whoStarts){
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(Main.class.getResource("views/Game.fxml"));
 		try {
 			BorderPane game = (BorderPane) loader.load();
 			GameControler controller = loader.getController();
 			controller.setMain(this);
-			controller.startGame(name1, name2);
+			controller.startGame(name1, name2, whoStarts);
 			
 			root.setCenter(game);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-
-
-	private void draw(GraphicsContext g) {
-
-		drawBoard(g);
-
-		
-		drawCross(g, 1, 1);
-		drawCross(g, 2, 2);
-		drawCross(g, 2, 0);
-		drawCross(g, 0, 2);
-		
 	}
 
 	
@@ -133,18 +121,6 @@ public class Main extends Application {
 	private void drawCircle(GraphicsContext g, int row, int col) {
 		g.strokeOval(40 * row, 40 * col, 40, 40);
 		
-	}
-
-	private void drawBoard(GraphicsContext g) {
-		g.strokeLine(0 , 0, 120, 0);	
-		g.strokeLine(0 , 120, 120, 120);
-		g.strokeLine(120 , 0, 120, 120);
-		g.strokeLine(0 , 0, 0, 120);
-		
-		g.strokeLine(0 , 40, 120, 40);	
-		g.strokeLine(0 , 80, 120, 80);
-		g.strokeLine(80 , 0, 80, 120);
-		g.strokeLine(40 , 0, 40, 120);
 	}
 
 	public static void main(String[] args) {

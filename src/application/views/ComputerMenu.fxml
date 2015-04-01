@@ -5,9 +5,37 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="400.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.views.HotSeatMenuControler">
    <children>
-      <Label layoutX="160.0" layoutY="192.0" text="Z Komputerem" />
+      <Button layoutX="306.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Rozpocznij" />
+      <RadioButton layoutX="121.0" layoutY="143.0" mnemonicParsing="false" selected="true">
+         <toggleGroup>
+            <ToggleGroup fx:id="ToggleGroup1" />
+         </toggleGroup></RadioButton>
+      <Label layoutX="163.0" layoutY="105.0" text="Rozpoczyna:" />
+      <TextField layoutX="127.0" layoutY="64.0" />
+      <Label layoutX="47.0" layoutY="28.0" text="Gracz" />
+      <Label layoutX="47.0" layoutY="68.0" text="Imię:" />
+      <Label layoutX="184.0" layoutY="189.0" text="Pionki:" />
+      <Label layoutX="154.0" layoutY="264.0" text="Poziom trudności:" />
+      <RadioButton layoutX="196.0" layoutY="143.0" mnemonicParsing="false" toggleGroup="$ToggleGroup1" />
+      <RadioButton layoutX="121.0" layoutY="220.0" mnemonicParsing="false" selected="true">
+         <toggleGroup>
+            <ToggleGroup fx:id="ToggleGroup2" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="121.0" layoutY="303.0" mnemonicParsing="false" selected="true">
+         <toggleGroup>
+            <ToggleGroup fx:id="ToggleGroup3" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton layoutX="196.0" layoutY="303.0" mnemonicParsing="false" toggleGroup="$ToggleGroup3" />
+      <RadioButton layoutX="196.0" layoutY="220.0" mnemonicParsing="false" toggleGroup="$ToggleGroup2" />
+      <Label layoutX="148.0" layoutY="143.0" text="Gracz" />
+      <Label layoutX="230.0" layoutY="143.0" text="Komputer" />
+      <Label layoutX="148.0" layoutY="220.0" text="Kółko" />
+      <Label layoutX="230.0" layoutY="220.0" text="Krzyżyk" />
+      <Label layoutX="149.0" layoutY="303.0" text="Trudny" />
+      <Label layoutX="235.0" layoutY="303.0" text="Łatwy" />
    </children>
 </AnchorPane>
