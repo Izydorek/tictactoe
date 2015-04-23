@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
@@ -37,7 +38,17 @@
                   <Label fx:id="nowMove" layoutX="174.0" layoutY="31.0" text="nowMove" />
                   <Button layoutX="288.0" layoutY="361.0" mnemonicParsing="false" onAction="#nextMach" text="Następny mecz" />
                   <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#endGame" text="Koniec" />
-                  <Label fx:id="winner" layoutX="25.0" layoutY="63.0" text="winner" />
+                  <Label layoutX="25.0" layoutY="63.0" text="winner" />
+                  <Label layoutX="81.0" layoutY="192.0" text="FAMFARY - Wygrały:" textFill="#7b00ff">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="winner" layoutX="226.0" layoutY="192.0" text="winner" textFill="#7b00ff">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children></Pane>
          </children>
       </AnchorPane>

@@ -129,4 +129,13 @@ public class GameControler {
 		g.strokeLine(80 , 0, 80, 240);
 	}
 	
-}
+//	private void drawWinPion(GraphicsContext g, int row, int col) {
+//		g.strokeLine(80 * col + 40, 0, 80 * row + 40, 240);
+//	}
+//	
+//	private void drawWinPoz(GraphicsContext g, int row, int col) {
+//		g.strokeLine(80 * col - 40, 0, 80 * row - 40, 240);
+//	}
+//	
+
+	}

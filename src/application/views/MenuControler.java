@@ -16,7 +16,6 @@ public class MenuControler {
 	}
 	
 	
-	
 	@FXML
 	public void handleHotSeatButton() {		
 		
